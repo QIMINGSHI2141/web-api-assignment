@@ -8,6 +8,7 @@ import usersRouter from './api/users';
 import session from 'express-session';
 import authenticate from './authenticate';
 import passport from './authenticate';
+import actorsRouter from './api/actors';
 dotenv.config();
 const errHandler = (err, req, res, next) => {
   /* if the error in development then send stack trace to display whole error,
@@ -30,6 +31,9 @@ app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRou
 app.use('/api/genres', genresRouter);
 
 app.use('/api/users', usersRouter);
+
+app.use('/api/actors',passport.authenticate('jwt', {session: false}),actorsRouter);
+
 let server = app.listen(port, () => {
   console.info(`Server running at ${port}`);
 });
