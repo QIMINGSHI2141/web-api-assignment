@@ -1,7 +1,23 @@
 # Web -API ASSIGNMENT2.
 
 Name: Qiming Shi
+## Installation Requirements
 
+Describe what needs to be on the machine to run the API (Node v?, NPM, MongoDB instance, any other 3rd party software not in the package.json). 
+
+Describe getting/installing the software, perhaps:
+
+```bat
+git clone https://github.com/QIMINGSHI2141/web-api-assignment.git
+```
+
+followed by installation
+
+```bat
+git install
+```
+
+## API Configuration
 ## Features.
 
  
