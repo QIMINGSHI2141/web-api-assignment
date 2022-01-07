@@ -37,16 +37,15 @@ describe("Movies endpoint", () => {
     api.close(); // Release PORT 8080
   });
   describe("GET /api/movies ", () => {
-    it("should return 20 movies and a status 200", (done) => {
+    it("should return 20 movies and a status 200", () => {
       request(api)
-        .get("/api/movies")
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
-        .expect(200)
-        .end((err, res) => {
-          expect(res.body).to.be.a("array");
-          expect(res.body.length).to.equal(20);
-          done();
+      .get("/api/movies")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(20);
         });
     });
   });
@@ -54,7 +53,7 @@ describe("Movies endpoint", () => {
   describe("GET /api/movies/:id", () => {
     describe("when the id is valid", () => {
       it("should return the matching movie", () => {
-        return request(api)
+        request(api)
           .get(`/api/movies/${movies[0].id}`)
           .set("Accept", "application/json")
           .expect("Content-Type", /json/)
@@ -66,7 +65,7 @@ describe("Movies endpoint", () => {
     });
     describe("when the id is invalid", () => {
       it("should return the NOT found message", () => {
-        return request(api)
+        request(api)
           .get("/api/movies/9999")
           .set("Accept", "application/json")
           .expect("Content-Type", /json/)
@@ -77,5 +76,59 @@ describe("Movies endpoint", () => {
           });
       });
     });
+
+  describe("GET /api/movies/tmdb/upcoming ", () => {
+    it("should return 20 movies and a status 200", () => {
+      request(api)
+      .get("/api/movies/tmdb/upcoming")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(20);
+        });
+    });
   });
+  describe("GET /api/movies/tmdb/nowplaying ", () => {
+    it("should return 20 movies and a status 200", () => {
+      request(api)
+      .get("/api/movies/tmdb/nowplaying")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(20);
+        });
+    });
+  });
+  describe("GET /api/movies/tmdb/popular ", () => {
+    it("should return 20 movies and a status 200", () => {
+      request(api)
+      .get("/api/movies/tmdb/popular")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(20);
+        });
+    });
+  });
+  describe("GET /api/movies/tmdb/top_rated ", () => {
+    it("should return 20 movies and a status 200", () => {
+      request(api)
+      .get("/api/movies/tmdb/top_rated")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(20);
+        });
+    });
+  });
+});
+
 });
