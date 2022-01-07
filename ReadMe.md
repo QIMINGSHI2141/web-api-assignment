@@ -8,7 +8,7 @@ Name: Qiming Shi
  + Feature 1 - Get upcoming movies from TMDB
  + Feature 2 - Get toprated/popular/nowplaying movies from TMDB 
  + Feature 3 - Get popular actors and parameterise
- + Feature 4 - The login from Assignment 1 becomes a user login using the API
+ + Feature 4 - The login from Assignment 1 becomes a user login using the account in API 
  + Feature 5 - Users can register before logging in
  + Feature 6 - Some pages cannot be accessed without login
 
